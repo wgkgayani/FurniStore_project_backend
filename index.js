@@ -19,11 +19,29 @@ const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // Middleware
+// ===============================
+// CORS CONFIGURATION
+// ===============================
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://furni-store-project-frontend-ubx1.vercel.app",
+];
+
 app.use(
   cors({
-    origin:
-      process.env.CORS_ORIGIN ||
-      "https://furni-store-project-frontend-ubx1.vercel.app", // Your frontend URL
+    origin: function (origin, callback) {
+      // Allow requests without origin (Postman, mobile apps)
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
   }),
 );
