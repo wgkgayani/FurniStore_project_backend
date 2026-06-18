@@ -24,7 +24,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // ===============================
 
 const allowedOrigins = [
-  "http://localhost:3000",
+  "http://localhost:3003",
   "https://furni-store-project-frontend-ubx1.vercel.app",
 ];
 
@@ -67,10 +67,13 @@ mongoose
   });
 
 // Routes
+
+
+app.use("/api/users", userRouter);
 app.use(authMiddleware);
 
 app.use("/api/products", productRouter);
-app.use("/api/users", userRouter);
+
 app.use("/api/orders", orderRouter);
 
 // Admin routes
