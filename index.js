@@ -69,15 +69,15 @@ mongoose
 // Routes
 
 
-app.use("/api/users", userRouter);
+app.use("/users", userRouter);
 app.use(authMiddleware);
 
-app.use("/api/products", productRouter);
+app.use("/products", productRouter);
 
-app.use("/api/orders", orderRouter);
+app.use("/orders", orderRouter);
 
 // Admin routes
-app.use("/api/admin", adminRouter);
+app.use("/admin", adminRouter);
 
 // Start Server
 app.listen(PORT, () => {
