@@ -48,12 +48,13 @@ app.use(authMiddleware);
 //
 // use routes
 
-app.use("/products", productRouter);
-app.use("/users", userRouter);
-app.use("/orders", orderRouter);
+app.use("/api/products", productRouter);
+app.use("/api/users", userRouter);
+app.use("/api/orders", orderRouter);
+
 //
 //add admin routes
-app.use("/admin", adminRouter); // Add this
+app.use("/api/admin", adminRouter); // Add this
 //
 //
 
