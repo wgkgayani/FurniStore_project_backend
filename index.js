@@ -21,7 +21,9 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Middleware
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || "http://localhost:3003", // Your frontend URL
+    origin:
+      process.env.CORS_ORIGIN ||
+      "https://furni-store-project-frontend-ubx1.vercel.app", // Your frontend URL
     credentials: true,
   }),
 );
